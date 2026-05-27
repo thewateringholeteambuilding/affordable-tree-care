@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════
+   AFFORDABLE TREE CARE — Industrial × Forest
+   Style: industrial (Oswald display, Archivo body, zero radius, hard-edge shadows)
+   Palette: forest (deep green bg, warm bone text, gold accent)
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Forest palette */
+  --color-bg:              hsl(150, 22%, 10%);
+  --color-surface:         hsl(150, 18%, 13%);
+  --color-surface-raised:  hsl(150, 15%, 16%);
+  --color-surface-overlay: hsla(150, 22%, 10%, 0.92);
+
+  --color-text:            hsl(60, 30%, 92%);
+  --color-text-muted:      hsl(45, 10%, 55%);
+  --color-text-accent:     hsl(40, 42%, 58%);
+
+  --color-accent:          hsl(40, 42%, 58%);
+  --color-accent-hover:    hsl(40, 48%, 65%);
+  --color-accent-subtle:   hsla(40, 42%, 58%, 0.10);
+
+  --color-border:          hsla(40, 42%, 58%, 0.12);
+  --color-border-subtle:   hsla(60, 30%, 92%, 0.06);
+
+  /* Industrial typography */
+  --font-heading: 'Oswald', 'Impact', sans-serif;
+  --font-body:    'Archivo', 'Inter', system-ui, sans-serif;
+
+  --text-hero:  clamp(2.75rem, 1rem + 7vw, 6.5rem);
+  --text-h1:    clamp(2rem, 1rem + 4vw, 4rem);
+  --text-h2:    clamp(1.75rem, 1rem + 3vw, 3rem);
+  --text-h3:    clamp(1.25rem, 1rem + 1.5vw, 1.75rem);
+
+  --leading-tight: 0.88;
+  --leading-body:  1.65;
+
+  --letter-spacing-wide: 0.22em;
+
+  /* Spacing */
+  --space-section: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Zero radius — industrial */
+  --radius: 0px;
+
+  /* Hard-edge shadows */
+  --shadow-sm: 3px 3px 0 0 var(--color-accent);
+  --shadow-md: 6px 6px 0 0 var(--color-accent);
+
+  /* Motion */
+  --duration-fast:   200ms;
+  --duration-normal: 300ms;
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--leading-body);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ─────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+p { line-height: var(--leading-body); }
+
+/* ── Section label ──────────────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-accent);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.btn-outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translate(-2px, -2px);
+}
+
+/* ── Industrial stat block — gold left rail ─────────────────────── */
+.stat-block {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.25rem;
+}
+
+/* ── Card hover ─────────────────────────────────────────────────── */
+.service-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+.service-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-raised); }
+
+/* ── Reduced motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .service-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  html { scroll-behavior: auto; }
+}

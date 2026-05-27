@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://affordable-tree-care-demo.thewateringhole.com/sitemap.xml
